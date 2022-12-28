@@ -4,12 +4,11 @@ from PIL import ImageTk, Image
 gridSize = int(input("How many rows and columns for the maze?: "))
 
 root = Tk()
-root.geometry("750x270")
 # set variables to parsable image references
 hWall = ImageTk.PhotoImage(Image.open("./assets/hori-wall.png"))
 vWall = ImageTk.PhotoImage(Image.open("./assets/vert-wall.png"))
 
-canvas= Canvas(root, width= 750, height= 270)
+canvas= Canvas(root, width=35*gridSize, height=35*gridSize)
 canvas.pack()
 
 cellWidth = 35
