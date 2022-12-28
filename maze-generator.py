@@ -1,8 +1,37 @@
 from tkinter import *
-root = Tk()
+from PIL import ImageTk, Image
 
-Label(text="Position 1", width=10).grid(row=0, column=0)
-Label(text="Position 2", width=10).grid(row=0, column=1)
-Label(text="Position 3", width=10).grid(row=1, column=0)
-Label(text="Position 4", width=10).grid(row=1, column=1)
+gridSize = int(input("How many rows and columns for the maze?: "))
+
+root = Tk()
+root.geometry("750x270")
+# set variables to parsable image references
+hWall = ImageTk.PhotoImage(Image.open("./assets/hori-wall.png"))
+vWall = ImageTk.PhotoImage(Image.open("./assets/vert-wall.png"))
+
+canvas= Canvas(root, width= 750, height= 270)
+canvas.pack()
+
+cellWidth = 35
+wallSize = 2
+
+ydist = 2
+
+# loop through provided number
+for i in range(int(gridSize + 1)):
+    xdist = 2
+    for j in range(int(gridSize)):
+        canvas.create_image(xdist,ydist,anchor=NW,image=hWall)
+        xdist += 33
+    ydist += 33
+
+xdist = 2
+
+for i in range(int(gridSize + 1)):
+    ydist = 2
+    for j in range(int(gridSize)):
+        canvas.create_image(xdist,ydist,anchor=NW,image=vWall)
+        ydist += 33
+    xdist += 33
+
 root.mainloop()
