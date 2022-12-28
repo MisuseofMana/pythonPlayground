@@ -8,9 +8,9 @@ def dice_trial(diceQuantity, diceSides):
         sum += random.randint(1, int(diceSides))
     return sum
 def simulate():
-    diceSides = int(input("How many dice sides? :"))
-    diceQuantity = int(input("How many dice? :"))
-    trialQuantity = int(input("Trial sample size? :"))
+    diceSides = int(input("How many sides should the dice have? :"))
+    diceQuantity = int(input("How many die to roll? :"))
+    trialQuantity = int(input("Trial sample size? (1000 is a good base) :"))
     trials = []
     for i in range(trialQuantity):
         trials.append(dice_trial(diceSides, diceQuantity))
